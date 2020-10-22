@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase.js"></script>
+
+<script type="text/javascript">
+
+	
+	var firebaseConfig = { //*** = proyect name
+					  apiKey: "***",
+					  authDomain: "***.firebaseapp.com",
+					  databaseURL: "https://***.firebaseio.com",
+					  projectId: "***",
+					  storageBucket: "***.appspot.com",
+					  messagingSenderId: "sender-id",
+					  appID: "app-id",
+					};
+
+	firebase.initializeApp(firebaseConfig);
+
+
+
+
+function myFunction() {
+
+
+					  var InputValue=document.getElementById("searchTxt").value;
+
+					 
+						 document.getElementById("p1").innerHTML = "Value: " + InputValue + " was sent. ";
+
+
+						var database = firebase.database();
+						database.ref('/').set({
+						Name: InputValue
+						});
+						console.log( "It works!!" );
+
+					  
+					
+
+}
+
+
+</script>
+
+<style>
+
+
+button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<h2>Shocks</h2>
+
+
+
+<input type="number" id="searchTxt" min="0" step="1"/><br><br>
+<p id="p1"></p>
+<button type="button" onclick="myFunction()">Send</button>
+
+
+
+</body>
+</html>
